@@ -206,13 +206,19 @@ func (d *memCacheClient) refreshLocked() error {
 	return nil
 }
 
+func init() {
+	fmt.Println("=== HACK init()")
+}
+
 func (d *memCacheClient) serverResourcesForGroupVersion(groupVersion string) (*metav1.APIResourceList, error) {
+	fmt.Println("=== HACK serverResourcesForGroupVersion() groupVersion:", groupVersion)
 	r, err := d.delegate.ServerResourcesForGroupVersion(groupVersion)
 	if err != nil {
 		return r, err
 	}
 	if len(r.APIResources) == 0 {
-		return r, fmt.Errorf("Got empty response for: %v", groupVersion)
+		return r, nil
+		//return r, fmt.Errorf("Got empty response for: %v", groupVersion)
 	}
 	return r, nil
 }

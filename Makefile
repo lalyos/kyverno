@@ -61,6 +61,12 @@ local:
 kyverno:
 	GOOS=$(GOOS) go build -o $(PWD)/$(KYVERNO_PATH)/kyverno -ldflags=$(LD_FLAGS) $(PWD)/$(KYVERNO_PATH)/main.go
 
+hack:
+	#go mod vendor
+  GOOS=linux go build -mod=vendor -v -a -o kyverno-linux -ldflags="-s -w -X github.com/nirmata/kyverno/pkg/version.BuildVersion=v1.1.6-35-g7cb49b6b-dirty -X github.com/nirmata/kyverno/pkg/version.BuildHash=master/7cb49b6b34bda6ca1a896175800d96254d5c382f -X github.com/nirmata/kyverno/pkg/version.BuildTime=2020-06-21_05:52:18PM" /Users/lalyos/go/src/github.com/nirmata/kyverno/cmd/kyverno/main.go
+	docker build -t lalyos/kyverno
+	docker push lalyos/kyverno
+
 docker-publish-kyverno: docker-build-kyverno  docker-tag-repo-kyverno  docker-push-kyverno
 
 docker-build-kyverno:
