@@ -1,3 +1,10 @@
+## Note
+
+Forked version to fix: nirmata/kyverno/issues/942
+```console
+kubectl create -f https://github.com/lalyos/kyverno/raw/hack/definitions/install.yaml
+```
+
 # Kyverno - Kubernetes Native Policy Management
 
 [![Build Status](https://travis-ci.org/nirmata/kyverno.svg?branch=master)](https://travis-ci.org/nirmata/kyverno) [![Go Report Card](https://goreportcard.com/badge/github.com/nirmata/kyverno)](https://goreportcard.com/report/github.com/nirmata/kyverno)
@@ -26,7 +33,7 @@ Policy enforcement is captured using Kubernetes events. Kyverno also reports pol
 
 Install Kyverno:
 ```console
-kubectl create -f https://github.com/nirmata/kyverno/raw/master/definitions/install.yaml
+kubectl create -f https://github.com/lalyos/kyverno/raw/hack/definitions/install.yaml
 ```
 
 You can also install using the [Helm chart](https://github.com/nirmata/kyverno/blob/master/documentation/installation.md#install-kyverno-using-helm).  As a next step, import [sample policies](https://github.com/nirmata/kyverno/blob/master/samples/README.md) and learn about [writing policies](https://github.com/nirmata/kyverno/blob/master/documentation/writing-policies.md). You can test policies using the [Kyverno cli](https://github.com/nirmata/kyverno/blob/master/documentation/kyverno-cli.md). See [docs](https://github.com/nirmata/kyverno/#documentation) for more details.

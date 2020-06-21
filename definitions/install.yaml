@@ -760,7 +760,7 @@ spec:
         env:
         - name: INIT_CONFIG
           value: init-config
-        image: nirmata/kyverno:v1.1.6
+        image: lalyos/kyverno
         imagePullPolicy: Always
         livenessProbe:
           failureThreshold: 4
